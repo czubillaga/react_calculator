@@ -56,4 +56,19 @@ describe("Calculator", () => {
     cy.get('#operator-equals').click();
     cy.get('#running-total').should('contain', '-25');
   });
+
+  it('should handle large numbers', () => {
+    cy.get('#number3').click();
+    cy.get('#number2').click();
+    cy.get('#number3').click();
+    cy.get('#number7').click();
+    cy.get('#operator-multiply').click();
+    cy.get('#number1').click();
+    cy.get('#number3').click();
+    cy.get('#number5').click();
+    cy.get('#number3').click();
+    cy.get('#operator-equals').click();
+    cy.get('#running-total').should('contain', '4379661')
+    
+  });
 })
