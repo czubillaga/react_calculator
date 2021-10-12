@@ -44,4 +44,16 @@ describe("Calculator", () => {
     cy.get('#operator-equals').click();
     cy.get('#running-total').should('contain', '98.8');
   });
+
+  it('should handle negatives', () => {
+    cy.get('#number6').click();
+    cy.get('#operator-subtract').click();
+    cy.get('#number3').click();
+    cy.get('#number8').click();
+    cy.get('#operator-equals').click();
+    cy.get('#operator_add').click();
+    cy.get('#number7').click();
+    cy.get('#operator-equals').click();
+    cy.get('#running-total').should('contain', '-25');
+  });
 })
